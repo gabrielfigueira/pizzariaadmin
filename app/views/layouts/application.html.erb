@@ -10,13 +10,16 @@
 
   <body>
     <div class="wrapper">
-      <%= render partial: 'layouts/top_bar' %>
-      <%= render partial: 'layouts/side_bar' %>
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <%= render partial: 'layouts/top_bar' %>
+        <%= render partial: 'layouts/side_bar' %>
+      </nav>
 <!--       <div class="page-wrapper">
         <div class="container-fluid"> -->
           <%= yield %>
       <!--   </div>
       </div> -->
     </div>
+
   </body>
 </html>
