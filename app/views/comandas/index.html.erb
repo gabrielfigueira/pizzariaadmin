@@ -1,0 +1,61 @@
+<%- model_class = Comanda -%>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h3>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!--    Hover Rows  -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= link_to new_comanda_path, class: 'btn btn-primary' do %><i class="fa fa-plus"></i> Novo<% end %>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th><%= model_class.human_attribute_name :cliente %></th>
+                    <th><%= model_class.human_attribute_name :mesa %></th>
+                    <th><%= model_class.human_attribute_name :data_hora_finalizacao %></th>
+                    <th><%= model_class.human_attribute_name :data_sincronizacao %></th>
+                    <th><%= model_class.human_attribute_name :desconto %></th>
+                    <th class="text-right"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @comandas.each do |comanda| %>
+                    <tr>
+                      <td><%= comanda.cliente %></td>
+                      <td><%= comanda.mesa %></td>
+                      <td><%= comanda.data_hora_finalizacao %></td>
+                      <td><%= comanda.data_sincronizacao %></td>
+                      <td><%= comanda.desconto %></td>
+                      <td class="text-right">
+                        <%= link_to comanda, class: 'btn btn-sm btn-default', data: {toggle: 'tooltip'}, title: 'Visualizar' do %><i class="fa fa-eye"></i><% end %>
+                        <%= link_to edit_comanda_path(comanda), class: 'btn btn-sm btn-primary', data: {toggle: 'tooltip'}, title: 'Editar' do %><i class="fa fa-pencil"></i><% end %>
+                        <%= link_to comanda, method: :delete, data: { confirm: 'Confirma a exclusão deste registro?', toggle: 'tooltip' }, class: 'btn btn-sm btn-danger', title: 'Excluir' do %><i class="fa fa-trash"></i><% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="6">
+                      <p><%= page_entries_info @comandas %></p>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End  Hover Rows  -->
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= will_paginate @comandas, renderer: BootstrapPagination::Rails %>
+</div>

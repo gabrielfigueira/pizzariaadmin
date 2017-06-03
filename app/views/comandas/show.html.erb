@@ -1,0 +1,43 @@
+<%- model_class = Comanda -%>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3><%=t '.title', :default => [:'helpers.titles.show', 'Visualizar %{model}'], :model => model_class.model_name.human.titleize %></h3>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-show">
+            <tbody>
+                  <tr>
+                <th><%= model_class.human_attribute_name :cliente %></th>
+                <td><%= @comanda.cliente %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :mesa %></th>
+                <td><%= @comanda.mesa %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :data_hora_finalizacao %></th>
+                <td><%= @comanda.data_hora_finalizacao %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :data_sincronizacao %></th>
+                <td><%= @comanda.data_sincronizacao %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :desconto %></th>
+                <td><%= @comanda.desconto %></td>
+              </tr>
+                </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer text-center">
+        <%= link_to edit_comanda_path(@comanda), class: 'btn btn-primary btn-lg' do %><i class="fa fa-pencil"></i> Editar<% end %>
+        <%= link_to comandas_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<% end %>
+      </div>
+    </div>
+  </div>
+</div>

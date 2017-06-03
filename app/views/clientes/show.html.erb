@@ -1,0 +1,63 @@
+<%- model_class = Cliente -%>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3><%=t '.title', :default => [:'helpers.titles.show', 'Visualizar %{model}'], :model => model_class.model_name.human.titleize %></h3>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-show">
+            <tbody>
+                  <tr>
+                <th><%= model_class.human_attribute_name :nome %></th>
+                <td><%= @cliente.nome %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :cpf %></th>
+                <td><%= @cliente.cpf %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :logradouro %></th>
+                <td><%= @cliente.logradouro %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :numero %></th>
+                <td><%= @cliente.numero %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :bairro %></th>
+                <td><%= @cliente.bairro %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :cep %></th>
+                <td><%= @cliente.cep %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :cidade %></th>
+                <td><%= @cliente.cidade %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :telefone %></th>
+                <td><%= @cliente.telefone %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :email %></th>
+                <td><%= @cliente.email %></td>
+              </tr>
+                  <tr>
+                <th><%= model_class.human_attribute_name :data_sincronizacao %></th>
+                <td><%= @cliente.data_sincronizacao %></td>
+              </tr>
+                </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer text-center">
+        <%= link_to edit_cliente_path(@cliente), class: 'btn btn-primary btn-lg' do %><i class="fa fa-pencil"></i> Editar<% end %>
+        <%= link_to clientes_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<% end %>
+      </div>
+    </div>
+  </div>
+</div>

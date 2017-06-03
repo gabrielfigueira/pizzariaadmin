@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente: one
+  mesa: MyString
+  data_hora_finalizacao: 2017-06-03 16:03:19
+  data_sincronizacao: 2017-06-03
+  desconto: 9.99
+
+two:
+  cliente: two
+  mesa: MyString
+  data_hora_finalizacao: 2017-06-03 16:03:19
+  data_sincronizacao: 2017-06-03
+  desconto: 9.99

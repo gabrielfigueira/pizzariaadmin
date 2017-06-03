@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pizzaria</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%= render partial: 'layouts/top_bar' %>
+      <%= render partial: 'layouts/side_bar' %>
+<!--       <div class="page-wrapper">
+        <div class="container-fluid"> -->
+          <%= yield %>
+      <!--   </div>
+      </div> -->
+    </div>
+  </body>
+</html>

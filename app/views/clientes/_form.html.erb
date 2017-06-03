@@ -1,0 +1,51 @@
+
+<div class="panel panel-default">
+  <%= form_for(@cliente) do |f| %>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :nome %>
+        <%= f.text_field :nome, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cpf %>
+        <%= f.text_field :cpf, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :logradouro %>
+        <%= f.text_field :logradouro, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :numero %>
+        <%= f.number_field :numero, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :bairro %>
+        <%= f.text_field :bairro, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cep %>
+        <%= f.text_field :cep, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :telefone %>
+        <%= f.text_field :telefone, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :data_sincronizacao %>
+        <%= f.text_field :data_sincronizacao, class: 'form-control datepicker' %>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+      <%= f.button class: 'btn btn-primary btn-lg' do %><i class="fa fa-check"></i> Salvar<% end %>
+      <%= link_to clientes_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<% end %>
+    </div>
+  <% end %>
+</div>

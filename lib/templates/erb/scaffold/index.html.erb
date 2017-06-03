@@ -1,0 +1,63 @@
+<% namespace_name = controller_class_name.include?('::') ? controller_class_name.split("::").first : false -%>
+<% singular_table_name.gsub!("#{namespace_name.downcase}_", '') if namespace_name.present? -%>
+<% plural_table_name.gsub!("#{namespace_name.downcase}_", '') if namespace_name.present? -%>
+<% route_url_sanitized = namespace_name.present? ? route_url.gsub("#{namespace_name.downcase}/", '') : route_url -%>
+<% class_name_sanitized = namespace_name.present? ? class_name.gsub("#{namespace_name}::", '') : class_name -%>
+<% index_helper_sanitized = namespace_name.present? ? index_helper.gsub("#{namespace_name.downcase}_", '') : index_helper -%>
+<%%- model_class = <%= singular_table_name.classify %> -%>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3><%%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h3>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!--    Hover Rows  -->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary' do %><i class="fa fa-plus"></i> Novo<%% end %>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <%- attributes.reject(&:password_digest?).each do |attribute| -%>
+                    <th><%%= model_class.human_attribute_name :<%= attribute.name %> %></th>
+                    <%- end -%>
+                    <th class="text-right"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+                    <tr>
+                      <%- attributes.reject(&:password_digest?).each do |attribute| -%>
+                      <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+                      <%- end -%>
+                      <td class="text-right">
+                        <%%= link_to <%= singular_table_name %>, class: 'btn btn-sm btn-default', data: {toggle: 'tooltip'}, title: 'Visualizar' do %><i class="fa fa-eye"></i><%% end %>
+                        <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-sm btn-primary', data: {toggle: 'tooltip'}, title: 'Editar' do %><i class="fa fa-pencil"></i><%% end %>
+                        <%%= link_to <%= singular_table_name %>, method: :delete, data: { confirm: 'Confirma a exclusão deste registro?', toggle: 'tooltip' }, class: 'btn btn-sm btn-danger', title: 'Excluir' do %><i class="fa fa-trash"></i><%% end %>
+                      </td>
+                    </tr>
+                  <%% end %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="<%= attributes.length + 1 %>">
+                      <p><%%= page_entries_info @<%= plural_table_name %> %></p>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End  Hover Rows  -->
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <%%= will_paginate @<%= plural_table_name %>, renderer: BootstrapPagination::Rails %>
+</div>

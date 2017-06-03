@@ -1,0 +1,27 @@
+
+<div class="panel panel-default">
+  <%= form_for(@comanda) do |f| %>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :cliente_id %>
+        <%= f.collection_select :cliente_id, @clientes, :id, :nome, { include_blank: @clientes.length > 1 }, class: 'form-control'  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :mesa %>
+        <%= f.text_field :mesa, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :data_sincronizacao %>
+        <%= f.text_field :data_sincronizacao, class: 'form-control datepicker' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :desconto %>
+        <%= f.text_field :desconto, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+      <%= f.button class: 'btn btn-primary btn-lg' do %><i class="fa fa-check"></i> Salvar<% end %>
+      <%= link_to comandas_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<% end %>
+    </div>
+  <% end %>
+</div>

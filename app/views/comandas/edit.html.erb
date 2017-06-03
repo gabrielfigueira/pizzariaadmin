@@ -1,0 +1,10 @@
+<%- model_class = Comanda -%>
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3><%=t '.title', :default => [:'helpers.titles.edit', 'Editar %{model}'], :model => model_class.model_name.human.titleize %></h3>
+    </div>
+
+    <%= render partial: 'form' %>
+  </div>
+</div>

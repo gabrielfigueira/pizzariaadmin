@@ -1,0 +1,44 @@
+<% namespace_name = controller_class_name.include?('::') ? controller_class_name.split("::").first : false -%>
+<% singular_table_name.gsub!("#{namespace_name.downcase}_", '') if namespace_name.present? -%>
+<% plural_table_name.gsub!("#{namespace_name.downcase}_", '') if namespace_name.present? -%>
+<% route_url_sanitized = namespace_name.present? ? route_url.gsub("#{namespace_name.downcase}/", '') : route_url -%>
+<% class_name_sanitized = namespace_name.present? ? class_name.gsub("#{namespace_name}::", '') : class_name -%>
+<% index_helper_sanitized = namespace_name.present? ? index_helper.gsub("#{namespace_name.downcase}_", '') : index_helper -%>
+
+<div class="panel panel-default">
+  <%%= form_for(@<%= singular_table_name %>) do |f| %>
+    <div class="panel-body">
+<% attributes.each do |attribute| -%>
+      <div class="form-group">
+<%- if attribute.reference? -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.collection_select :<%= attribute.column_name %>, @<%= attribute.name.pluralize %>, :id, :COLUMN_NAME, { include_blank: @<%= attribute.name.pluralize %>.length > 1 }, class: 'form-control'  %>
+<%- elsif attribute.password_digest? -%>
+        <%%= f.label :password %>
+        <%%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%%= f.label :password_confirmation %>
+        <%%= f.password_field :password_confirmation, class: 'form-control' %>
+<% elsif attribute.type == :string -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'form-control', maxlength: <%= ! attribute.attr_options[:limit].nil? ? attribute.attr_options[:limit] : 255 %> %>
+<% elsif attribute.type == :time -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.text_field :<%= attribute.column_name %>, class: 'form-control timepicker' %>
+<% elsif attribute.type == :date -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.text_field :<%= attribute.column_name %>, class: 'form-control datepicker' %>
+<% else -%>
+        <%%= f.label :<%= attribute.column_name %> %>
+        <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'form-control' %>
+<% end -%>
+      </div>
+<% end -%>
+    </div>
+    <div class="panel-footer text-center">
+      <%%= f.button class: 'btn btn-primary btn-lg' do %><i class="fa fa-check"></i> Salvar<%% end %>
+      <%%= link_to <%= plural_table_name %>_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<%% end %>
+    </div>
+  <%% end %>
+</div>
