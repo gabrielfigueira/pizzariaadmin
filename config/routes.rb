@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :comandas
   resources :clientes
   namespace :api do
+    # Rota da documentação
+    get 'docs', to: 'docs#index', as: 'docs'
     # Api dos clientes
     post 'clientes/salvar', to: 'clientes#salvar', as: 'salvar_cliente'
     post 'clientes/excluir', to: 'clientes#excluir', as: 'excluir_cliente'

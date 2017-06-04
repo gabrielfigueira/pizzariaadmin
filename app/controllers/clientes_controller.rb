@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   before_action :set_cliente, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /clientes
   def index
@@ -54,6 +54,17 @@ class ClientesController < ApplicationController
 
     # Permitir somente parâmetros úteis
     def cliente_params
-      params.require(:cliente).permit(:nome, :cpf, :logradouro, :numero, :bairro, :cep, :cidade, :telefone, :email, :data_sincronizacao)
+      params.require(:cliente).permit(
+        :nome,
+        :cpf,
+        :logradouro,
+        :numero,
+        :bairro,
+        :cep,
+        :cidade,
+        :telefone,
+        :email,
+        :data_sincronizacao
+      )
     end
 end

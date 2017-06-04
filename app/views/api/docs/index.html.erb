@@ -1,0 +1,89 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+
+ <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#cliente" aria-controls="cliente" role="tab" data-toggle="tab">Cliente</a></li>
+    <li role="presentation"><a href="#comandas" aria-controls="comandas" role="tab" data-toggle="tab">Comandas</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="cliente">
+      <div class="page-content">
+        <h3>Create && Update</h3>
+        <h4>
+          <strong>POST</strong> http://pizzariaapi.herokuapp.com/api/clientes/salvar
+        </h4>
+        Parametros esperados:
+        <code>
+          <pre>
+            cliente = {
+              nome: "Gabriel Figueira",
+              cpf: "123.123.123.123",
+              logradouro: "Rua x",
+              numero: 123,
+              bairro: "Bairro",
+              cep: "14300-000",
+              cidade: "Batatais",
+              telefone: "16 1234 1234",
+              email: "gabrielfigueira@teste.com",
+              data_sincronizacao: "2017-06-04"
+            }
+          </pre>
+        </code>
+        O método acima é utilizado para inserção e atualização dos dados
+        <hr>
+        <h3>Delete</h3>
+        <h4>
+          <strong>POST</strong> http://pizzariaapi.herokuapp.com/api/clientes/excluir
+        </h4>
+        <code>
+          <pre>
+            cliente = {
+              cpf: "123.123.123.123"
+            }
+          </pre>
+        </code>
+        O método acima é utilizado para inserção e exclusão dos dados
+        <br>
+        <br>
+        <strong>Resposta</strong>
+        <pre>
+          Em caso de sucesso:     {"response": "ok"}
+
+          Em caso de erro:       {"response": "erro"}
+        </pre>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="comandas">
+      <div class="page-header">
+         <h3> Comandas </h3>
+      </div>
+      <div class="page-content">
+        <h4>
+          <strong>POST</strong> http://pizzariaapi.herokuapp.com/api/comandas/salvar
+        </h4>
+        Parametros esperados:
+        <code>
+          <pre>
+            cliente = {
+              nome: "Gabriel Figueira",
+              cpf: "123.123.123.123",
+              logradouro: "Rua x",
+              numero: 123,
+              bairro: "Bairro",
+              cep: "14300-000",
+              cidade: "Batatais",
+              telefone: "16 1234 1234",
+              email: "gabrielfigueira@teste.com",
+              data_sincronizacao: "2017-06-04"
+            }
+          </pre>
+        </code>
+        O método acima é utilizado para inserção e atualização dos dados
+      </div>
+    </div>
+  </div>
+</div>
+
