@@ -67,21 +67,37 @@
         Parametros esperados:
         <code>
           <pre>
-            cliente = {
-              nome: "Gabriel Figueira",
-              cpf: "123.123.123.123",
-              logradouro: "Rua x",
-              numero: 123,
-              bairro: "Bairro",
-              cep: "14300-000",
-              cidade: "Batatais",
-              telefone: "16 1234 1234",
-              email: "gabrielfigueira@teste.com",
-              data_sincronizacao: "2017-06-04"
+            cpf: "terste",
+            comanda = {
+              mesa: "232",
+              data_hora_finalizacao: "2016-02-01 00:00:00",
+              data_sincronizacao:  "2016-02-01 00:00:00",
+              desconto: 00.00
             }
           </pre>
         </code>
         O método acima é utilizado para inserção e atualização dos dados
+        <hr>
+        <h3>Delete</h3>
+        <h4>
+          <strong>POST</strong> http://pizzariaapi.herokuapp.com/api/comandas/excluir
+        </h4>
+        <code>
+          <pre>
+            cliente = {
+              mesa: "123"
+            }
+          </pre>
+        </code>
+        O método acima é utilizado para inserção e exclusão dos dados
+        <br>
+        <br>
+        <strong>Resposta</strong>
+        <pre>
+          Em caso de sucesso:     {"response": "ok"}
+
+          Em caso de erro:       {"response": "erro"}
+        </pre>
       </div>
     </div>
   </div>

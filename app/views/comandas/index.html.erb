@@ -26,7 +26,7 @@
                 <tbody>
                   <% @comandas.each do |comanda| %>
                     <tr>
-                      <td><%= comanda.cliente %></td>
+                      <td><%= comanda.cliente && comanda.cliente.nome %></td>
                       <td><%= comanda.mesa %></td>
                       <td><%= comanda.data_hora_finalizacao %></td>
                       <td><%= comanda.data_sincronizacao %></td>

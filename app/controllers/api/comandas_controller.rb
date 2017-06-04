@@ -1,6 +1,6 @@
 class Api::ComandasController < ApiController
   def salvar
-    comanda = Comanda.find_by(mesa: parametros_cliente[:mesa])
+    comanda = Comanda.find_by(mesa: parametros_comanda[:mesa])
 
     if comanda.present?
       comanda.attributes = parametros_comanda
@@ -16,7 +16,7 @@ class Api::ComandasController < ApiController
   end
 
   def excluir
-    comanda = Cliente.find_by(cpf: parametros_cliente[:cpf])
+    comanda = Comanda.find_by(mesa: parametros_comanda[:mesa])
     if comanda.destroy
       render json: {response: "ok"}
     else
