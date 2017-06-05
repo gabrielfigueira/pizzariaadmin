@@ -1,4 +1,19 @@
 pt-BR:
+  exception_logger:
+    logged_exceptions:
+      index:
+        title: Logs
+        filters: Filtros
+        latest_exceptions: Ultimos Erros
+        exception: Erro
+        controller_action: Controller / Action
+        dates: Datas
+        today: Hoje
+        last_few_days: Ultimos dias
+        last_7_days: Ultimos 7 dias
+        last_30_days: Ultimos 30 dias
+      show:
+        title: Logged Exception
   will_paginate:
     previous_label: "&#8592; Anterior"
     next_label: "Pr&oacute;ximo &#8594;"

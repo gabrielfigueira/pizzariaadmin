@@ -29,6 +29,7 @@ class Api::ComandasController < ApiController
       cliente =  Cliente.find_by(cpf: params[:cpf])
       params.require(:comanda).permit(
         :mesa,
+        :data_abertura,
         :data_hora_finalizacao,
         :data_sincronizacao,
         :desconto

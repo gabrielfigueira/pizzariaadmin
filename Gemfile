@@ -42,6 +42,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+gem "exception_logger", git: "https://github.com/eduardoazevedo3/exception_logger.git"
+
 group :production do
   gem 'pg'
 end

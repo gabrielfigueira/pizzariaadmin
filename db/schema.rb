@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603190319) do
+ActiveRecord::Schema.define(version: 20170605012634) do
 
   create_table "clientes", force: :cascade do |t|
     t.string   "nome"
@@ -35,7 +35,19 @@ ActiveRecord::Schema.define(version: 20170603190319) do
     t.decimal  "desconto",              precision: 5, scale: 2
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.time     "data_abertura"
     t.index ["cliente_id"], name: "index_comandas_on_cliente_id"
+  end
+
+  create_table "logged_exceptions", force: :cascade do |t|
+    t.string   "exception_class"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.text     "message"
+    t.text     "backtrace"
+    t.text     "environment"
+    t.text     "request"
+    t.datetime "created_at"
   end
 
 end

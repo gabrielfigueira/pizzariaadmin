@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'dashboard#index'
-
+  mount ExceptionLogger::Engine => "/logs"
   resources :comandas
   resources :clientes
   namespace :api do

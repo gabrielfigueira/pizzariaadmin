@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/eduardoazevedo3/exception_logger.git
+  revision: bc593c6b6119fc46fe5f6d897932b48c0379f14a
+  specs:
+    exception_logger (0.2.1.1)
+      rails (>= 4.0.0)
+      will_paginate (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -166,6 +174,7 @@ DEPENDENCIES
   bootstrap_sb_admin_base_v2
   byebug
   coffee-rails (~> 4.2)
+  exception_logger!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
