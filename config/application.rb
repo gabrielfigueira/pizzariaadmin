@@ -17,5 +17,7 @@ module Pizzariadmin
       g.test_framework  :test_unit, fixture: true
       g.javascripts     false
     end
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+    Rails.application.config.active_record.belongs_to_required_by_default = false
   end
 end
