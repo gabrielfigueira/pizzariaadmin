@@ -1,7 +1,19 @@
 class Api::ClientesController < ApiController
-  before_action :parametros_uteis
+  before_action :parametros_uteis, only: [:salvar, :excluir]
 
   def salvar
+    parametros = {
+      nome: params[:nome],
+      cpf: params[:cpf],
+      logradouro: params[:logradouro],
+      numero: params[:numero],
+      bairro: params[:bairro],
+      cep: params[:cep],
+      cidade: params[:cidade],
+      telefone: params[:telefone],
+      email: params[:email],
+      data_sincronizacao: params[:data_sincronizacao]
+    }
     cliente = Cliente.find_by(cpf: params[:cpf])
 
     if cliente.present?
@@ -19,7 +31,7 @@ class Api::ClientesController < ApiController
   end
 
   def excluir
-    cliente = Cliente.find_by(cpf: parametros[:cpf])
+    cliente = Cliente.find_by(cpf: params[:cpf])
     if cliente.destroy
       render json: {response: "ok"}
     else
@@ -40,5 +52,6 @@ class Api::ClientesController < ApiController
       email: params[:email],
       data_sincronizacao: params[:data_sincronizacao]
     }
+    p parametros
   end
 end
