@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  data_cadastro: 2017-06-19
+  data_sincronizacao: 
+
+two:
+  descricao: MyString
+  data_cadastro: 2017-06-19
+  data_sincronizacao: 

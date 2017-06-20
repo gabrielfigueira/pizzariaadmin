@@ -1,0 +1,23 @@
+
+<div class="panel panel-default">
+  <%= form_for(@produto) do |f| %>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :descricao %>
+        <%= f.text_field :descricao, class: 'form-control', maxlength: 255 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :data_cadastro %>
+        <%= f.text_field :data_cadastro, class: 'form-control datepicker' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :data_sincronizacao %>
+        <%= f.text_field :data_sincronizacao, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="panel-footer text-center">
+      <%= f.button class: 'btn btn-primary btn-lg' do %><i class="fa fa-check"></i> Salvar<% end %>
+      <%= link_to produtos_path, class: 'btn btn-default btn-lg' do %><i class="fa fa-undo"></i> Voltar<% end %>
+    </div>
+  <% end %>
+</div>

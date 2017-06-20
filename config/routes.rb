@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :produtos
   root 'dashboard#index'
   mount ExceptionLogger::Engine => "/logs"
   resources :comandas

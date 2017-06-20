@@ -13,5 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap_sb_admin_base_v2
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
+$(document).on('turbolinks:load', function() {
+  $('.datepicker').datepicker();
+});
