@@ -33,15 +33,7 @@ class Api::ProdutosController < ApiController
 
   def parametros_uteis
     parametros = {
-      nome: params[:nome],
-      cpf: params[:cpf],
-      logradouro: params[:logradouro],
-      numero: params[:numero],
-      bairro: params[:bairro],
-      cep: params[:cep],
-      cidade: params[:cidade],
-      telefone: params[:telefone],
-      email: params[:email],
+      descricao: params[:descricao],
       data_sincronizacao: params[:data_sincronizacao]
     }
     p parametros
