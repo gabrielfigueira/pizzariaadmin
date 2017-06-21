@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     # Api das comandas
     post 'comandas/salvar', to: 'comandas#salvar', as: 'salvar_comanda'
     post 'comandas/excluir', to: 'comandas#excluir', as: 'excluir_comanda'
+
+    # Api das Produtos
+    post 'produtos/salvar', to: 'produtos#salvar', as: 'salvar_produto'
+    post 'produtos/excluir', to: 'produtos#excluir', as: 'excluir_produto'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

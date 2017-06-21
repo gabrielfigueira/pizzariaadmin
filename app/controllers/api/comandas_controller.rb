@@ -18,9 +18,9 @@ class Api::ComandasController < ApiController
     end
 
     if ! comanda.save
-      render json: {response: "erro", erros: "#{comanda.errors.full_messages}"}
+      render json: {response: "-1"}
     else
-      render json: {response: "ok"}
+      render json: {response: "#{comanda.id}"}
     end
   end
 

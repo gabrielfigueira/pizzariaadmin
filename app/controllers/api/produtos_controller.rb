@@ -1,38 +1,30 @@
-class Api::ClientesController < ApiController
+class Api::ProdutosController < ApiController
   before_action :parametros_uteis, only: [:salvar, :excluir]
 
   def salvar
     parametros = {
-      nome: params[:nome],
-      cpf: params[:cpf],
-      logradouro: params[:logradouro],
-      numero: params[:numero],
-      bairro: params[:bairro],
-      cep: params[:cep],
-      cidade: params[:cidade],
-      telefone: params[:telefone],
-      email: params[:email],
+      descricao: params[:descricao],
       data_sincronizacao: params[:data_sincronizacao]
     }
-    cliente = Cliente.find_by(cpf: params[:cpf])
+    produto = Produto.find_by(cpf: params[:cpf])
 
-    if cliente.present?
-      cliente.attributes = parametros
+    if produto.present?
+      produto.attributes = parametros
     else
-      cliente = Cliente.new(parametros)
+      produto = Produto.new(parametros)
     end
-    cliente.attributes = parametros
+    produto.attributes = parametros
 
-    if ! cliente.save
+    if ! produto.save
       render json: {response: "-1"}
     else
-      render json: {response: "#{cliente.id}"}
+      render json: {response: "#{produto.id}"}
     end
   end
 
   def excluir
-    cliente = Cliente.find_by(cpf: params[:cpf])
-    if cliente.destroy
+    produto = Cliente.find_by(cpf: params[:cpf])
+    if produto.destroy
       render json: {response: "ok"}
     else
       render json: {response: "erro"}
