@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mesa: one
+  produto: one
+  quantidade: 1
+  data_hora_entrega: MyString
+
+two:
+  mesa: two
+  produto: two
+  quantidade: 1
+  data_hora_entrega: MyString

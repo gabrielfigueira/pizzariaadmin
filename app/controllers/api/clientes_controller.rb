@@ -33,9 +33,9 @@ class Api::ClientesController < ApiController
   def excluir
     cliente = Cliente.find_by(cpf: params[:cpf])
     if cliente.destroy
-      render json: {response: "ok"}
+      render json: {response: "#{cliente.id}"}
     else
-      render json: {response: "erro"}
+      render json: {response: "-1"}
     end
   end
 

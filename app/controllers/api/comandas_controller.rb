@@ -27,10 +27,17 @@ class Api::ComandasController < ApiController
   def excluir
     comanda = Comanda.find_by(mesa: parametros_comanda[:mesa])
     if comanda.destroy
-      render json: {response: "ok"}
+      render json: {response: "#{comanda.id}"}
     else
-      render json: {response: "erro"}
+      render json: {response: "-1"}
     end
+  end
+
+  def itens_comandas
+    comanda = Comanda.id(params[:id_centralizado])
+    comanda.destroy_all
+    comanda.comandas_itens
+
   end
 
   private
